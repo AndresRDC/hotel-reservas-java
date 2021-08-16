@@ -34,12 +34,6 @@ public class SvClienteModificar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
-        if (empleadoId == null) {
-            response.sendRedirect("login");
-            return;
-        }
         long id = Long.parseLong(request.getParameter("id"));
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");

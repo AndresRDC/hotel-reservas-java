@@ -35,12 +35,7 @@ public class SvHabitacionModificar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
-        if (empleadoId == null) {
-            response.sendRedirect("login");
-            return;
-        }        
+                HttpSession misesion = request.getSession();       
         long id = Long.parseLong(request.getParameter("id"));
         int numero = Integer.parseInt(request.getParameter("numero"));
         int piso = Integer.parseInt(request.getParameter("piso"));

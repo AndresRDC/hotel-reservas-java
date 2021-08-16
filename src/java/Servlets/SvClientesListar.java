@@ -24,12 +24,6 @@ public class SvClientesListar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
-        if (empleadoId == null) {
-            response.sendRedirect("login");
-            return;
-        } 
         //Para asegurarme no redirija a cliente de seleccion reserva
         //No debería pasar pero al no implementar cancelar pueden quedar los datos en sesión
         request.getSession().removeAttribute("reservaIdHabitacion");

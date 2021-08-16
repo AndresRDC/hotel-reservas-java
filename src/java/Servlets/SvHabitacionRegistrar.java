@@ -33,15 +33,7 @@ public class SvHabitacionRegistrar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
         Controladora controladora = new Controladora();
-        boolean hayEmpleadosCargados = controladora.hayEmpleadosCargados();
-        if ((empleadoId == null) && (hayEmpleadosCargados)) {
-            response.sendRedirect("login");
-            return;
-        } 
-        
         int numero = Integer.parseInt(request.getParameter("numero"));
         int piso = Integer.parseInt(request.getParameter("piso"));
         double precio = Double.parseDouble(request.getParameter("precio"));

@@ -39,12 +39,6 @@ public class SvReservasClientePeriodo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
-        if (empleadoId == null) {
-            response.sendRedirect("login");
-            return;
-        }
         String clienteId = (String) request.getParameter("id");
         if(clienteId != null){
             Controladora controladora = new Controladora();
@@ -58,14 +52,7 @@ public class SvReservasClientePeriodo extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
-        if (empleadoId == null) {
-            response.sendRedirect("login");
-            return;
-        }
-        
+            throws ServletException, IOException {        
         String fechaDesdeString = request.getParameter("fechaDesde");
         Date fechaDesde = FormatoFecha.textoAFecha(fechaDesdeString);
         String fechaHastaString = request.getParameter("fechaHasta");

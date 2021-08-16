@@ -35,25 +35,12 @@ public class SvReservasDia extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                         HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
-        Controladora controladora = new Controladora();
-        boolean hayEmpleadosCargados = controladora.hayEmpleadosCargados();
-        if ((empleadoId == null) && (hayEmpleadosCargados)) {
-            response.sendRedirect("login");
-            return;
-        } 
         RequestDispatcher miDispatcher = request.getRequestDispatcher("/reservasDia.jsp");
         miDispatcher.forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
-        if (empleadoId == null) {
-            response.sendRedirect("login");
-            return;
-        }
         String fechaString = (String) request.getParameter("fecha");
         Date fecha = FormatoFecha.textoAFecha(fechaString);
         Controladora controladora = new Controladora();

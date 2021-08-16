@@ -27,13 +27,6 @@
         </script>
     </head>
     <body>
-        <%
-            HttpSession misesion = request.getSession();
-            String empleadoId = (String) misesion.getAttribute("empleadoId");
-            if (empleadoId == null) {
-                response.sendRedirect("login");
-            } else {
-        %>
         <!-- Navbar -->
         <%@ include file="navbar.jsp" %>
         <!-- cuerpo -->
@@ -61,8 +54,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%
-                                List<Cliente> listaClientes = (List<Cliente>) request.getAttribute("listaClientes");
+                            <%                                List<Cliente> listaClientes = (List<Cliente>) request.getAttribute("listaClientes");
                                 for (Cliente cliente : listaClientes) {
                             %>
 
@@ -133,7 +125,7 @@
                     </div>
                 </div>
             </div>
-                            
+
             <!-- Reserva Modal HTML -->
             <div id="reservarModal" class="modal fade">
                 <div class="modal-dialog">
@@ -156,8 +148,5 @@
                     </div>
                 </div>
             </div>
-            <%
-                }
-            %>
     </body>
 </html>

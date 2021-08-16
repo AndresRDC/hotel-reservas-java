@@ -29,14 +29,8 @@ public class SvClienteRegistrar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
+        HttpSession misesion = request.getSession();
         Controladora controladora = new Controladora();
-        boolean hayEmpleadosCargados = controladora.hayEmpleadosCargados();
-        if ((empleadoId == null) && (hayEmpleadosCargados)) {
-            response.sendRedirect("login");
-            return;
-        } 
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String direccion = request.getParameter("direccion");

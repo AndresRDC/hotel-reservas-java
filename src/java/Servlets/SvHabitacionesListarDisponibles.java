@@ -30,14 +30,7 @@ public class SvHabitacionesListarDisponibles extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
-        if (empleadoId == null) {
-            response.sendRedirect("login");
-            return;
-        } 
-        
+            throws ServletException, IOException {        
         int cantidadHuespedes = Integer.parseInt(request.getParameter("cantidadHuespedes"));
         String fechaDesdeString = request.getParameter("checkIn");
         Date fechaDesde = FormatoFecha.textoAFecha(fechaDesdeString);

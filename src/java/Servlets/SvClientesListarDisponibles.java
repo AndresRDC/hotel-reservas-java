@@ -23,12 +23,6 @@ public class SvClientesListarDisponibles extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
-        if (empleadoId == null) {
-            response.sendRedirect("login");
-            return;
-        } 
         Controladora controladora = new Controladora();
         List<Cliente> clientes = controladora.traerClientes();
         request.setAttribute("listaClientes", clientes);

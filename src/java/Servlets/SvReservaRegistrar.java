@@ -45,10 +45,6 @@ public class SvReservaRegistrar extends HttpServlet {
             throws ServletException, IOException {
         HttpSession misesion = request.getSession();
         String empleadoId = (String) misesion.getAttribute("empleadoId");
-        if (empleadoId == null) {
-            response.sendRedirect("login");
-            return;
-        }
         long empleadoActualId = Long.parseLong(empleadoId);
         long clienteId = Long.parseLong(request.getParameter("id"));
         

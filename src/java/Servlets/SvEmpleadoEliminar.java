@@ -26,14 +26,7 @@ public class SvEmpleadoEliminar extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession misesion = request.getSession();
-        String empleadoId = (String) misesion.getAttribute("empleadoId");
-        if (empleadoId == null) {
-            response.sendRedirect("login");
-            return;
-        }  
-        
+            throws ServletException, IOException {        
         long id = Long.parseLong(request.getParameter("id"));
         Controladora controladora = new Controladora();
         controladora.eliminarEmpleado(id);
