@@ -9,6 +9,8 @@ import Logica.Controladora;
 import Logica.Empleado;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,6 +54,10 @@ public class SvLogin extends HttpServlet {
             throws ServletException, IOException {
         String usuario = request.getParameter("usuario");
         String password = request.getParameter("password");
+        if((usuario == null) || (password == null) || (usuario.length() == 0) || (password.length() == 0)){
+              response.sendRedirect("login.jsp");
+              return;
+        }
         Controladora controladora = new Controladora();
         long empleadoId = controladora.obtenerIdEmpleado(usuario,password);
         if(empleadoId != 0){

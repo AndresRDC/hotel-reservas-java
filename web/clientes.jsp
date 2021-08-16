@@ -34,7 +34,6 @@
                 $('#dniEdit').val(dniEdit);
                 $('#idEdit').val(idEdit);
             }            
-            
         </script>
     </head>
     <body>
