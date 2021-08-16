@@ -177,4 +177,7 @@ public class Controladora {
     public List<Reserva> traerReservasClientePeriodo(Date fechaDesde, Date fechaHasta, long clienteId){
         return controladoraPersistencia.traerReservasClientePeriodo(fechaDesde, fechaHasta, clienteId);
     }
+    public void eliminarReserva(long id){
+        controladoraPersistencia.eliminarReserva(id);
+    }
 }

@@ -113,4 +113,12 @@ public class ControladoraPersistencia {
         return reservas;
     }
     
+        public void eliminarReserva(long id){
+        try {
+            reservaJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

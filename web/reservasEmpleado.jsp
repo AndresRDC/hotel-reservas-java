@@ -17,11 +17,15 @@
                 // Activate tooltip
                 $('[data-toggle="tooltip"]').tooltip();
             });
+            function pasarId(id) {
+                $('#idEliminar').val(id);
+            }
         </script>
     </head>
     <body>
         <%
             String empleadoNombre = (String) request.getAttribute("empleadoNombre");
+            String empleadoId = (String) request.getParameter("id");
         %>
         <!-- Navbar -->
         <%@ include file="navbar.jsp" %>
@@ -43,6 +47,7 @@
                                 <th>Check Out</th>
                                 <th>Nro Habitacion</th>
                                 <th>Cliente</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,6 +61,9 @@
                                 <td><%=FormatoFecha.fechaATextoDiaMesAnio(reserva.getCheckOut())%></td>
                                 <td><%=reserva.getHabitacion().getNumero()%></td>
                                 <td><%=reserva.getCliente().getNombreCompleto()%></td>
+                                <td>
+                                    <a href="#deleteModal" class="delete" data-toggle="modal" onclick="pasarId(<%=String.valueOf(reserva.getId())%>)"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                </td>
                             </tr>
                             <%
                                     }
@@ -63,6 +71,29 @@
                             %>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+        <!-- Delete Modal HTML -->
+        <div id="deleteModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method='get' action="SvReservaEliminar">
+                        <div class="modal-header">						
+                            <h4 class="modal-title">Confirmación</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">					
+                            <p>¿Esta seguro que desea eliminarla?</p>
+                            <p class="text-warning"><small>El registro no se podrá recuperar.</small></p>
+                        </div>
+                        <input name="id" id="idEliminar" type="hidden" value="">
+                        <input name="pathRedirect" id="pathRedirect" type="hidden" value='SvReservasEmpleado?id=<%=empleadoId%>'>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                            <input type="submit" class="btn btn-danger" value="Eliminar">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
