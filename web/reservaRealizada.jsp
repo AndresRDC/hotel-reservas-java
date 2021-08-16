@@ -39,7 +39,7 @@
                                         Cliente: <%=clienteNombre%>
                                     </p>
                                     <p>
-                                        CheckIn: <%=checkIn%> CheckOut: <%=checkOut%>
+                                        CheckIn: <%=FormatoFecha.textoATextoDiaMesAnio(checkIn)%> CheckOut: <%=FormatoFecha.textoATextoDiaMesAnio(checkOut)%>
                                     </p>
                                     <p>
                                         Habitación <%=habitacion.getNumero()%> Piso <%=habitacion.getPiso()%> <%=habitacion.getTipo()%> <%=habitacion.getTematica()%>
