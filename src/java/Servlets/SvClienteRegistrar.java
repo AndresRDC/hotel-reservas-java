@@ -38,18 +38,21 @@ public class SvClienteRegistrar extends HttpServlet {
         String tipo = request.getParameter("tipo");
         String fechaNacimientoString = request.getParameter("fechaNacimiento");
         String dni = request.getParameter("dni");
+        Object reservaIdHabitacion = misesion.getAttribute("reservaIdHabitacion");
         if ((nombre == null) || (nombre.length() == 0)
                 || (apellido == null) || (apellido.length() == 0)
                 || (dni == null) || (dni.length() == 0)
                 || (fechaNacimientoString == null) || (fechaNacimientoString.length() < 10)) {
             request.getSession().setAttribute("msgDetail", "Debe completar los campos requeridos (*)");
-            response.sendRedirect("SvClientesListar");
+            if (reservaIdHabitacion != null) {
+                response.sendRedirect("SvClientesListarDisponibles");
+            } else {
+                response.sendRedirect("SvClientesListar");
+            }
             return;
         }
         Date fechaNacimiento = FormatoFecha.textoAFecha(fechaNacimientoString);
-        controladora.crearCliente(nombre, apellido, direccion, profesion, tipo, fechaNacimiento, dni);
-
-        Object reservaIdHabitacion = misesion.getAttribute("reservaIdHabitacion");
+        controladora.crearCliente(nombre, apellido, direccion, profesion, tipo, fechaNacimiento, dni);        
         if (reservaIdHabitacion != null) {
             response.sendRedirect("SvClientesListarDisponibles");
         } else {

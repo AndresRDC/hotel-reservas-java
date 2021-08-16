@@ -21,7 +21,7 @@ public class SvLogout extends HttpServlet {
             throws ServletException, IOException {
         request.getSession().removeAttribute("empleadoUsuario");
         request.getSession().removeAttribute("empleadoId");
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("login");
     }
 
     @Override

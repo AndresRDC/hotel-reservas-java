@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 @Entity
 public class Reserva implements Serializable {
@@ -25,10 +26,13 @@ public class Reserva implements Serializable {
     @Basic
     private double total;
     @ManyToOne
+    @CascadeOnDelete
     private Empleado empleado;
     @ManyToOne
+    @CascadeOnDelete
     private Cliente cliente;
     @ManyToOne
+    @CascadeOnDelete
     private Habitacion habitacion;
 
     public long getId() {

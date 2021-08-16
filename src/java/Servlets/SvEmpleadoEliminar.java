@@ -28,6 +28,16 @@ public class SvEmpleadoEliminar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
         long id = Long.parseLong(request.getParameter("id"));
+        
+        HttpSession misesion = request.getSession();
+        String empleadoId = (String) misesion.getAttribute("empleadoId");
+        long empleadoActualId = Long.parseLong(empleadoId);
+
+        if(id == empleadoActualId){
+            request.getSession().setAttribute("msgDetail", "No se puede eliminar el empleado actual");
+            response.sendRedirect("SvEmpleadosListar");
+            return;
+        }
         Controladora controladora = new Controladora();
         controladora.eliminarEmpleado(id);
         response.sendRedirect("SvEmpleadosListar");
