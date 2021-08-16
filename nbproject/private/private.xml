@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/andre/Documents/NetBeansProjects/diCroche_Andres_int/src/java/Servlets/SvReservasDia.java</file>
+            <file>file:/C:/Users/andre/Documents/NetBeansProjects/diCroche_Andres_int/web/empleadoAlta.jsp</file>
+            <file>file:/C:/Users/andre/Documents/NetBeansProjects/diCroche_Andres_int/src/java/Logica/ControladoraPersistencia.java</file>
+            <file>file:/C:/Users/andre/Documents/NetBeansProjects/diCroche_Andres_int/web/reservasEmpleado.jsp</file>
+            <file>file:/C:/Users/andre/Documents/NetBeansProjects/diCroche_Andres_int/src/java/Logica/Controladora.java</file>
+            <file>file:/C:/Users/andre/Documents/NetBeansProjects/diCroche_Andres_int/src/java/Servlets/SvEmpleadoEliminar.java</file>
+            <file>file:/C:/Users/andre/Documents/NetBeansProjects/diCroche_Andres_int/src/java/Servlets/SvEmpleadoRegistrar.java</file>
+            <file>file:/C:/Users/andre/Documents/NetBeansProjects/diCroche_Andres_int/web/reservasClientePeriodo.jsp</file>
+            <file>file:/C:/Users/andre/Documents/NetBeansProjects/diCroche_Andres_int/src/java/Servlets/SvLogin.java</file>
+            <file>file:/C:/Users/andre/Documents/NetBeansProjects/diCroche_Andres_int/src/java/Servlets/SvReservasEmpleado.java</file>
+        </group>
     </open-files>
 </project-private>

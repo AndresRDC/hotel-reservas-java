@@ -17,6 +17,16 @@
         </script>
     </head>
     <body>
+        <%
+            HttpSession misesion = request.getSession();
+            String empleadoId = (String) misesion.getAttribute("empleadoId");
+            Controladora controladora = new Controladora();
+            boolean hayEmpleadosCargados = controladora.hayEmpleadosCargados();
+            if ((empleadoId == null) && (hayEmpleadosCargados)) {
+                response.sendRedirect("login");
+            } else {
+        %>
+        
         <div class="container-xl">
             <div class="row justify-content-center">
                 <div class="col-md-7 col-lg-6 col-xl-5">
@@ -49,7 +59,6 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="label" for="cargo">Cargo</label>
-                                <!-- <input name="cargo" id="cargo" type="text" class="form-control" placeholder="Ingrese cargo"> -->
                                 <select class="form-control" name="cargo" id="cargo">
                                     <option>-</option>
                                     <option>Gerente</option>
@@ -72,6 +81,9 @@
                 </div>
             </div>
         </div>
+        <%
+            }
+        %>
         <%@ include file="msgModal.jsp" %>
     </body>
 </html>

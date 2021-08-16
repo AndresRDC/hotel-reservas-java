@@ -29,7 +29,8 @@ public class LoginFilter implements Filter {
     private HttpServletRequest httpRequest;
     private static final String[] notLoginRequiredURLs = {
         "/login",
-        "/empleadoAlta.jsp"
+        "/empleadoAlta.jsp",
+        "/empleadoRegistrar"
     };
 
     private FilterConfig filterConfig = null;
