@@ -5,16 +5,16 @@ Practica en proceso realizada con Java basada en el Trabajo Práctico Integrador
 
 ### Base de datos
 
-**Usuario**: hotelero
-**Contraseña**: hotelero
-**url**: jdbc:mysql://localhost:3306/hotel
-**puerto**: 3306
-**base de datos:** hotel
-**host**: localhost
+- **Usuario**: hotelero
+- **Contraseña**: hotelero
+- **url**: jdbc:mysql://localhost:3306/hotel
+- **puerto**: 3306
+- **base de datos:** hotel
+- **host**: localhost
 
 ### Contenedor Web
 
-Apache Tomcat
+- Apache Tomcat
 
 ### Librerías
 
