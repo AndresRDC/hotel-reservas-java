@@ -1,17 +1,3 @@
-<script>
-    let msgDetail = "<%=request.getSession().getAttribute("msgDetail")%>";
-    let msgTitle = "<%=request.getSession().getAttribute("msgTitle")%>";
-    alert(msgDetail);
-    if(msgDetail){
-        if(msgTitle){
-            $("#msgModalTitle").text(msgTitle);
-        }
-        $("#msgModalDetail").text(msgDetail);
-        $(window).on('load', function() {
-            $('#msgModal').modal('show');
-        });
-    }
-</script>
 <div id="msgModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -30,3 +16,26 @@
         </div>
     </div>
 </div>
+<script>
+    let msgDetail = null;
+    let msgTitle = null;
+    <% if(request.getSession().getAttribute("msgDetail") != null){ %>
+        msgDetail = '<%=request.getSession().getAttribute("msgDetail")%>';
+    <% } %> 
+    <% if(request.getSession().getAttribute("msgTitle") != null){ %>
+        msgTitle = '<%=request.getSession().getAttribute("msgTitle")%>';
+    <% } %>
+    <%
+        request.getSession().removeAttribute("msgTitle");
+        request.getSession().removeAttribute("msgDetail");
+    %>
+    if(msgDetail){
+        if(msgTitle){
+            $("#msgModalTitle").text(msgTitle);
+        }
+        $("#msgModalDetail").text(msgDetail);
+        $(window).on('load', function() {
+            $('#msgModal').modal('show');
+        });
+    }
+</script>

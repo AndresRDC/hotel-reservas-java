@@ -48,7 +48,15 @@ public class SvEmpleadoModificar extends HttpServlet {
         String profesion = request.getParameter("profesion");
         String cargo = request.getParameter("cargo");
         String dni = request.getParameter("dni");
-        String fechaNacimientoString = request.getParameter("fechaNacimiento");      
+        String fechaNacimientoString = request.getParameter("fechaNacimiento");  
+        if ((nombre == null) || (nombre.length() == 0)
+                || (apellido == null) || (apellido.length() == 0)
+                || (dni == null) || (dni.length() == 0)
+                || (fechaNacimientoString == null) || (fechaNacimientoString.length() < 10)) {
+            request.getSession().setAttribute("msgDetail", "Debe completar los campos requeridos (*)");
+            response.sendRedirect("SvEmpleadosListar");
+            return;
+        }
         Date fechaNacimiento = FormatoFecha.textoAFecha(fechaNacimientoString);
         Controladora controladora = new Controladora();
         controladora.modificarEmpleado(id, nombre, apellido, profesion, cargo, direccion, fechaNacimiento, dni);

@@ -57,7 +57,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%                                List<Cliente> listaClientes = (List<Cliente>) request.getAttribute("listaClientes");
+                            <%                                
+                                List<Cliente> listaClientes = (List<Cliente>) request.getAttribute("listaClientes");
                                 for (Cliente cliente : listaClientes) {
                             %>
                             <tr>
@@ -90,19 +91,19 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label class="label" for="nombre">Nombre</label>
+                                    <label class="label" for="nombre">Nombre *</label>
                                     <input name="nombre" type="text" class="form-control" placeholder="Ingrese nombre" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="apellido">Apellido</label>
+                                    <label class="label" for="apellido">Apellido *</label>
                                     <input name="apellido" id="apellido" type="text" class="form-control" placeholder="Ingrese apellido" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="dni">DNI</label>
+                                    <label class="label" for="dni">DNI *</label>
                                     <input name="dni" id="dni" type="text" class="form-control" placeholder="Ingrese DNI" minlength="7" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="fechaNacimiento">F.Nacimiento</label>
+                                    <label class="label" for="fechaNacimiento">F.Nacimiento *</label>
                                     <input name="fechaNacimiento" type="date" class="form-control" placeholder="01/01/2001" required>
                                 </div>
                                 <div class="form-group">
@@ -140,19 +141,19 @@
                             </div>
                             <div class="modal-body">					
                                 <div class="form-group">
-                                    <label class="label" for="nombre">Nombre</label>
+                                    <label class="label" for="nombre">Nombre *</label>
                                     <input name="nombre"  id="nombreEdit" type="text" class="form-control" placeholder="Ingrese nombre" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="apellido">Apellido</label>
+                                    <label class="label" for="apellido">Apellido *</label>
                                     <input name="apellido" id="apellidoEdit" type="text" class="form-control" placeholder="Ingrese apellido" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="dni">DNI</label>
+                                    <label class="label" for="dni">DNI *</label>
                                     <input name="dni" id="dniEdit" type="text" class="form-control" placeholder="Ingrese DNI" minlength="7" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="fechaNacimiento">F.Nacimiento</label>
+                                    <label class="label" for="fechaNacimiento">F.Nacimiento *</label>
                                     <input name="fechaNacimiento" id="fechaNacimientoEdit" type="date" class="form-control" placeholder="01/01/2001" required>
                                 </div>
                                 <div class="form-group">
@@ -202,5 +203,6 @@
                     </div>
                 </div>
             </div>
+            <%@ include file="msgModal.jsp" %>
     </body>
 </html>

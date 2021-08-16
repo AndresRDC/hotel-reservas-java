@@ -90,17 +90,16 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label class="label" for="numero">Numero</label>
+                                    <label class="label" for="numero">Numero *</label>
                                     <input name="numero" id="numero" type="number" class="form-control" placeholder="Ingrese numero" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="piso">Piso</label>
+                                    <label class="label" for="piso">Piso *</label>
                                     <input name="piso" id="piso" type="number" class="form-control" placeholder="Ingrese piso" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="tipo">Tipo</label>
-                                    <!-- <input name="tipo" id="tipo" type="text" class="form-control" placeholder="Ingrese tipo" required>-->
-                                    <select class="form-control" name="tipo" id="tipo">
+                                    <label class="label" for="tipo">Tipo *</label>
+                                    <select class="form-control" name="tipo" id="tipo" required>
                                         <option>Simple</option>
                                         <option>Doble</option>
                                         <option>Triple</option>
@@ -108,9 +107,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="tematica">Tematica</label>
-                                    <!-- <input name="tematica" id="tematica" type="text" class="form-control" placeholder="Ingrese tematica">-->
-                                    <select class="form-control" name="tematica" id="tematica">
+                                    <label class="label" for="tematica">Tematica *</label>
+                                    <select class="form-control" name="tematica" id="tematica" required>
                                         <option>Regular</option>
                                         <option>Matrimonial</option>
                                         <option>Familiar</option>
@@ -118,8 +116,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="precio">Precio</label>
-                                    <input name="precio" id="precio" type="number" class="form-control" placeholder="Ingrese precio">
+                                    <label class="label" for="precio">Precio *</label>
+                                    <input name="precio" id="precio" type="number" class="form-control" placeholder="Ingrese precio" required>
                                 </div>			
                             </div>
                             <div class="modal-footer">
@@ -141,16 +139,16 @@
                             </div>
                             <div class="modal-body">	
                                 <div class="form-group">
-                                    <label class="label" for="numero">Numero</label>
+                                    <label class="label" for="numero">Numero *</label>
                                     <input name="numero" id="numeroEdit" type="number" class="form-control" placeholder="Ingrese numero" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="piso">Piso</label>
+                                    <label class="label" for="piso">Piso *</label>
                                     <input name="piso" id="pisoEdit" type="number" class="form-control" placeholder="Ingrese piso" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="tipo">Tipo</label>
-                                    <select class="form-control" name="tipo" id="tipoEdit">
+                                    <label class="label" for="tipo">Tipo *</label>
+                                    <select class="form-control" name="tipo" id="tipoEdit" required>
                                         <option>Simple</option>
                                         <option>Doble</option>
                                         <option>Triple</option>
@@ -158,9 +156,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="tematica">Tematica</label>
-                                    <!-- <input name="tematica" id="tematicaEdit" type="text" class="form-control" placeholder="Ingrese tematica">-->
-                                    <select class="form-control" name="tematica" id="tematicaEdit">
+                                    <label class="label" for="tematica">Tematica *</label>
+                                    <select class="form-control" name="tematica" id="tematicaEdit" required>
                                         <option>Regular</option>
                                         <option>Matrimonial</option>
                                         <option>Familiar</option>
@@ -168,8 +165,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="precio">Precio</label>
-                                    <input name="precio" id="precioEdit" type="number" class="form-control" placeholder="Ingrese precio">
+                                    <label class="label" for="precio">Precio *</label>
+                                    <input name="precio" id="precioEdit" type="number" class="form-control" placeholder="Ingrese precio" required>
                                 </div>	
                                 <input name="id" id="idEdit" type="hidden" value="">
                             </div>
@@ -203,5 +200,6 @@
                     </div>
                 </div>
             </div>
+            <%@ include file="msgModal.jsp" %>
     </body>
 </html>

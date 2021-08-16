@@ -38,6 +38,7 @@
                 </div>
             </div>
         </div>
+        <%@ include file="msgModal.jsp" %>
     </body>
 </html>
 

@@ -6,14 +6,8 @@
 package Servlets;
 
 import Logica.Controladora;
-import Logica.Empleado;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,7 +39,8 @@ public class SvLogin extends HttpServlet {
         if (!hayEmpleadosCargados){
             response.sendRedirect("empleadoAlta.jsp");
         }else{
-            response.sendRedirect("login.jsp");
+            RequestDispatcher miDispatcher = request.getRequestDispatcher("/login.jsp");
+            miDispatcher.forward(request, response);
         }
     }
 
@@ -55,8 +50,10 @@ public class SvLogin extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String password = request.getParameter("password");
         if((usuario == null) || (password == null) || (usuario.length() == 0) || (password.length() == 0)){
-              response.sendRedirect("login.jsp");
-              return;
+            request.getSession().setAttribute("msgDetail", "Datos ingresados no validos");
+            RequestDispatcher miDispatcher = request.getRequestDispatcher("/login.jsp");
+            miDispatcher.forward(request, response);
+            return;
         }
         Controladora controladora = new Controladora();
         long empleadoId = controladora.obtenerIdEmpleado(usuario,password);
@@ -65,7 +62,9 @@ public class SvLogin extends HttpServlet {
             request.getSession().setAttribute("empleadoId", String.valueOf(empleadoId));
             response.sendRedirect("index.jsp");
         }else{
-            response.sendRedirect("login.jsp");
+            request.getSession().setAttribute("msgDetail", "Verifique los valores ingresados");
+            RequestDispatcher miDispatcher = request.getRequestDispatcher("/login.jsp");
+            miDispatcher.forward(request, response);
         }      
     }
 

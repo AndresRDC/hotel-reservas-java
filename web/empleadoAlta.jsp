@@ -24,19 +24,19 @@
                         <h2 class="text-center mb-4">Agregar empleado</h2>
                         <form action="empleadoRegistrar" method="post" class="signup-form">
                             <div class="form-group mb-3">
-                                <label class="label" for="nombre">Nombre</label>
+                                <label class="label" for="nombre">Nombre *</label>
                                 <input name="nombre" type="text" class="form-control" placeholder="Ingrese nombre" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="label" for="apellido">Apellido</label>
+                                <label class="label" for="apellido">Apellido *</label>
                                 <input name="apellido" id="apellido" type="text" class="form-control" placeholder="Ingrese apellido" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="label" for="dni">DNI</label>
+                                <label class="label" for="dni">DNI *</label>
                                 <input name="dni" id="dni" type="text" class="form-control" placeholder="Ingrese DNI" minlength="7" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="label" for="fechaNacimiento">F.Nacimiento</label>
+                                <label class="label" for="fechaNacimiento">F.Nacimiento *</label>
                                 <input name="fechaNacimiento" type="date" class="form-control" placeholder="01/01/2001" required>
                             </div>
                             <div class="form-group mb-3">
@@ -57,11 +57,11 @@
                                 </select>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="label" for="usuario">Nombre de usuario</label>
+                                <label class="label" for="usuario">Nombre de usuario *</label>
                                 <input name="usuario" id="usuario" type="text" class="form-control" placeholder="Ingrese nombre de usuario" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="label" for="password">Password</label>
+                                <label class="label" for="password">Password *</label>
                                 <input name="password" id="password" type="password" class="form-control" placeholder="Password" minlength="5" required>
                             </div>
                             <div class="form-group">
@@ -72,5 +72,6 @@
                 </div>
             </div>
         </div>
+        <%@ include file="msgModal.jsp" %>
     </body>
 </html>

@@ -41,7 +41,15 @@ public class SvClienteModificar extends HttpServlet {
         String profesion = request.getParameter("profesion");
         String tipo = request.getParameter("tipo");
         String dni = request.getParameter("dni");
-        String fechaNacimientoString = request.getParameter("fechaNacimiento");      
+        String fechaNacimientoString = request.getParameter("fechaNacimiento");     
+        if ((nombre == null) || (nombre.length() == 0)
+                || (apellido == null) || (apellido.length() == 0)
+                || (dni == null) || (dni.length() == 0)
+                || (fechaNacimientoString == null) || (fechaNacimientoString.length() < 10)) {
+            request.getSession().setAttribute("msgDetail", "Debe completar los campos requeridos (*)");
+            response.sendRedirect("SvClientesListar");
+            return;
+        }
         Date fechaNacimiento = FormatoFecha.textoAFecha(fechaNacimientoString);
         Controladora controladora = new Controladora();
         controladora.modificarCliente(id, nombre, apellido, profesion, tipo, direccion, fechaNacimiento, dni);

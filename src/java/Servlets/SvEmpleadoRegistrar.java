@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,7 +46,7 @@ public class SvEmpleadoRegistrar extends HttpServlet {
         if ((empleadoId == null) && (hayEmpleadosCargados)) {
             response.sendRedirect("login");
             return;
-        } 
+        }
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String direccion = request.getParameter("direccion");
@@ -54,10 +55,25 @@ public class SvEmpleadoRegistrar extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String passwordPlano = request.getParameter("password");
         String fechaNacimientoString = request.getParameter("fechaNacimiento");
+        String dni = request.getParameter("dni");
+        if ((nombre == null) || (nombre.length() == 0)
+                || (apellido == null) || (apellido.length() == 0)
+                || (dni == null) || (dni.length() == 0)
+                || (usuario == null) || (usuario.length() == 0)
+                || (passwordPlano == null) || (passwordPlano.length() == 0)
+                || (fechaNacimientoString == null) || (fechaNacimientoString.length() < 10)) {
+            request.getSession().setAttribute("msgDetail", "Debe completar los campos requeridos (*)");
+
+            if (hayEmpleadosCargados) {
+                response.sendRedirect("SvEmpleadosListar");
+            } else {
+                response.sendRedirect("empleadoAlta.jsp");
+            }
+            return;
+        }
         PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
         String password = passwordAuthentication.hash(passwordPlano);
-        Date fechaNacimiento = FormatoFecha.textoAFecha(fechaNacimientoString);     
-        String dni = request.getParameter("dni");
+        Date fechaNacimiento = FormatoFecha.textoAFecha(fechaNacimientoString);
         controladora.crearEmpleado(nombre, apellido, direccion, profesion, cargo, usuario, password, fechaNacimiento, dni);
         response.sendRedirect("SvEmpleadosListar");
     }
