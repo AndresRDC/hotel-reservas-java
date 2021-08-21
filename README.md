@@ -25,3 +25,7 @@ Practica en proceso realizada con Java basada en el Trabajo Práctico Integrador
 ## Ilustraciones
 
 [https://undraw.co/illustrations](https://undraw.co/illustrations)
+
+## Demostración
+
+![Alt Text](reservas.gif)
